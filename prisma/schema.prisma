@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Stock {
+  sku       String   @id
+  remaining Int
+}
+
+model Booking {
+  id             String   @id @default(cuid())
+  idempotencyKey String   @unique
+  status         String   // pending | paid | failed
+  bookerJson     Json
+  attendeesJson  Json
+  linesJson      Json
+  subtotalCents  Int
+  discountCents  Int
+  totalCents     Int
+  promoCode      String?
+  createdAt      DateTime @default(now())
+  paidAt         DateTime?
+}
