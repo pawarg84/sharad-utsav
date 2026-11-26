@@ -1,6 +1,6 @@
 # Sharad Utsav 2026 — Booking System
 
-**Live URL:** [PASTE YOUR VERCEL URL HERE]
+**Live URL:** https://sharad-utsav-five.vercel.app
 
 ## How to run locally
 
